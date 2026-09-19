@@ -25,3 +25,5 @@ The following candidates were chosen for this analysis. An exception has been ma
 15. Brian Jung
 16. ClearValue Tax
 17. Financial Education
+
+NB: All Live/Broadcast videos were skipped from this analysis. 
