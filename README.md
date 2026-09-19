@@ -39,3 +39,11 @@ Minimalism + personal finance. Steady, clean production and consistent uploads a
 
 12. Ben Felix (~600–650k) or The Money Guy Show (~700k)
 Smaller subscriber counts but among the highest reputation scores. Ben Felix (PWL Capital) is the go-to evidence-based / academic-investing channel. The Money Guy Show (CFP team) is extremely active with planning-focused content and a large video library. Both published continuously 2023–2026.
+
+13. Patrick Boyle 
+
+
+14. Marko - WhiteBoard Finance 
+
+
+15. The Financial Diet 
