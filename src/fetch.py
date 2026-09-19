@@ -39,7 +39,7 @@ CHANNEL_IDS = [
     'UCnMn36GT_H0X-w5_ckLtlgQ'
 ] 
 
-VIDEOS_PER_CHANNEL = 50
+VIDEOS_PER_CHANNEL = 100
 
 # building the get videos function 
 
@@ -76,6 +76,8 @@ def parse_duration(iso_duration):
     # ensuring that only those digits are captured which are present as all videos may not be hour-long
 
     match = re.match(r'PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?', iso_duration)
+    if not match: 
+        return 0
 
     # extracting just the numbers from each group 
 
@@ -90,7 +92,7 @@ def parse_duration(iso_duration):
 # created a function that helps pull title, views, likes, comments, and duration 
 # we batch the videos in groups of 50s because youtube's videos.list allows up to 50 video IDs per single API call 
 
-def get_video_details(video_ids, channel_name):
+def get_video_details(video_ids):
     all_rows = [] # for storing one dict per video 
 
     for i in range(0, len(video_ids), 50):
@@ -108,14 +110,15 @@ def get_video_details(video_ids, channel_name):
         # self-disclosure: took claude's help for indexing video details 
         for item in response['items']:
             all_rows.append({
-                'channel_name': channel_name,
+                'channel_name': item['snippet']['channelTitle'],
                 'video_id': item['id'],
                 'title': item['snippet']['title'],
                 'publish_date': item['snippet']['publishedAt'],
                 'duration_seconds': parse_duration(item['contentDetails']['duration']),
                 'view_count': int(item['statistics'].get('viewCount', 0)), # adding 0 if view count not available 
                 'like_count': int(item['statistics'].get('likeCount', 0)), # same as above
-                'comment_count': int(item['statistics'].get('commentCount', 0)) # same as above
+                'comment_count': int(item['statistics'].get('commentCount', 0)), # same as above
+                'description': item['snippet'].get('description', '')
             })
     return all_rows
 
@@ -128,17 +131,17 @@ def main():
 
     # self-disclosure: took claude's help for converting the channel_id into channel_name
     for channel_id in CHANNEL_IDS: 
-        channel_response = youtube.channels().list(part='snippet', id=channel_id).execute()
-        channel_name = channel_response['items'][0]['snippet']['title']
+        # channel_response = youtube.channels().list(part='snippet', id=channel_id).execute()
+        # channel_name = channel_response['items'][0]['snippet']['title']
 
         # added a little progress tracker while the function runs 
-        print(f"Fetching for {channel_name}")     
+        print(f"Fetching for Channel ID: {channel_id}")     
 
         # for the given channel, get its last 50 video ids
         video_ids = get_video_ids(channel_id, max_results=VIDEOS_PER_CHANNEL)
 
         # get full details for those specific video ids
-        video_data = get_video_details(video_ids, channel_name)
+        video_data = get_video_details(video_ids)
 
         all_data.extend(video_data)
 
