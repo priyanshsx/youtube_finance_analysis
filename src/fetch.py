@@ -109,12 +109,19 @@ def get_video_details(video_ids):
 
         # self-disclosure: took claude's help for indexing video details 
         for item in response['items']:
+
+            if item['snippet'].get('liveBroadcasContent') in ['live', 'upcoming']:
+                continue
+
+            content_details = item.get('contentDetails', {})
+            duration_iso = content_details.get('duration', 'PT0S')
+
             all_rows.append({
                 'channel_name': item['snippet']['channelTitle'],
                 'video_id': item['id'],
                 'title': item['snippet']['title'],
                 'publish_date': item['snippet']['publishedAt'],
-                'duration_seconds': parse_duration(item['contentDetails']['duration']),
+                'duration_seconds': parse_duration(duration_iso),
                 'view_count': int(item['statistics'].get('viewCount', 0)), # adding 0 if view count not available 
                 'like_count': int(item['statistics'].get('likeCount', 0)), # same as above
                 'comment_count': int(item['statistics'].get('commentCount', 0)), # same as above
