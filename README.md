@@ -4,7 +4,7 @@ The Research Question: Do panic-driven titles ("Recession Coming", "Market Crash
 
 
 ## Eligibility Criteria 
-Any YouTube content creator that regularly publishes finance, investment (equities, commodities, crypto, real estate) related content as their primary content creation and has been publishing regularly since January 1st, 2023 and September 2026, have a subscriber count of at least 650k. 
+Any YouTube content creator that regularly publishes finance, investment (equities, commodities, crypto, real estate) related content as their primary content creation and has been publishing regularly since January 1st, 2023 until September 2026, have a subscriber count of at least 650k. 
 
 The following candidates were chosen for this analysis. An exception has been made for Ben Felix (641K subscribers < threshold subscribers count). 
 
@@ -27,3 +27,20 @@ The following candidates were chosen for this analysis. An exception has been ma
 17. Financial Education
 
 NB: All Live/Broadcast videos were skipped from this analysis. 
+
+## Research questions we answer:
+
+1. Hypothesis 1 (macro): High market volatility (VIX > 20) increases the performance gap between "Fear" titles and "Evergreen" titles by at least 50%. 
+2. Hypothesis 2 (sponsorship penalty): Sponsored uploads suffer a statistically significant engagement penalty (p < 0.05), with comment intensity taking a steeper hit than view volume. 
+3. Hypotheis 3 (format): Videos within the 10-20 minute window achieve the highest relative performance across all market regimes. 
+
+Other questions we can hint on: 
+4. How many days does it take for the creators to pivot their strategy toward panic/fear content following a major VIX spike or S&P500 selloff? 
+5. Is there a diminishing returns threshold where repeatedly publishing "market crash" or "recession" titles during prolonged high-VIX periods leads to a steep decline in engagement rate? 
+6. Which creator sub-categories capture the highest view multiplier during market panic events? 
+7. What is the exact baseline drop in engagement rate when a video contains sponsored/affiliate links in the description versus organic content?
+8. Do certain sponsor types trigger a harsher engagement penalty than established financial products? 
+9. Which creators in the 17-channel cohort maintain zero statistically significant drop in engagement when taking a sponsor, and what structural characteristics distinguish their audiences?
+10. Does the 10-to-20-minute video duration window hold as the optimal balance for views and engagement in general finance, or do deep-dive formats (20+ minutes like Ben Felix or Patrick Boyle) outperform?
+11. Do longer videos (20+ minutes) absorb the "sponsorship penalty" better than shorter videos (<10 minutes)?
+12. Do titles containing high-urgency keywords ("Warning", "Do THIS", "Emergency", "Before it's too late") achieve a higher median view-to-subscriber ratio than factual, descriptive titles?
