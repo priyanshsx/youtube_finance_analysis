@@ -54,9 +54,9 @@ SELECT
 FROM gspc_continuous_date
 
 -- new columns to add: 
--- title_category (sentiment): fear/panic/warning, evergreen/opportunity, other  
--- topic/theme: trading_ed, investing_ed, economic_ed, business_ed, ai_ed, tech_ed, life_ed, 
--- is_sponsored (True/False), 
+-- title_sentiment: fear/panic/warning, evergreen/opportunity, other  
+-- title_theme: trading_ed, investing_ed, economic_ed, business_ed, ai_ed, tech_ed, life_ed, 
+-- is_sponsored: yes/no, 
 -- sponsor_type (Brokerage, VPN, trading software, other), 
 -- duration_bucket (short: <10, medium: 10-20, long: 20+)
 
