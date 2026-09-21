@@ -27,7 +27,7 @@ FROM
         INTERVAL '1 DAY'
     )
 
-    -- merging gspc and vix 
+    -- merging date_spine and gspc and vix 
     CREATE TABLE gspc_continuous_date AS 
     SELECT * FROM date_spine 
     LEFT JOIN gspc
@@ -37,3 +37,23 @@ FROM
     SELECT * FROM date_spine 
     LEFT JOIN vix
     ON date_spine.continuous_date = vix.date
+
+-- select your date column 
+-- create a new column that says give me the last known price, ignoring the nulls, by looking 
+-- over a window of time ordered from oldest to newest, starting from beginning of the table 
+-- up to today 
+
+CREATE TABLE vix_filled_close AS
+SELECT 
+    close, high, low, open,
+    continuous_date,
+    LAST_VALUE(close) IGNORE NULLs OVER (ORDER BY continuous_date 
+    ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) AS vix_filled_close
+FROM vix_continuous_date
+
+CREATE TABLE gspc_filled_close AS
+SELECT 
+    continuous_date,
+    LAST_VALUE(close) IGNORE NULLs OVER (ORDER BY continuous_date 
+    ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) AS gspc_filled_close
+FROM gspc_continuous_date
