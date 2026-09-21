@@ -44,3 +44,9 @@ Other questions we can hint on:
 10. Does the 10-to-20-minute video duration window hold as the optimal balance for views and engagement in general finance, or do deep-dive formats (20+ minutes like Ben Felix or Patrick Boyle) outperform?
 11. Do longer videos (20+ minutes) absorb the "sponsorship penalty" better than shorter videos (<10 minutes)?
 12. Do titles containing high-urgency keywords ("Warning", "Do THIS", "Emergency", "Before it's too late") achieve a higher median view-to-subscriber ratio than factual, descriptive titles?
+
+
+## Research Methodology 
+
+1. Market Regimes 
+    This research uses VIX and GSPC as market regime gauges to guide our understanding of content performance across various market regimes. VIX (a volatility index) helps measure the degree of "violent" moves in the market and GSPC provides an actual directional baseline of the economy. Tracking the actual index price lets us see the reality of what the market is doing versus what creators are saying about it.  
