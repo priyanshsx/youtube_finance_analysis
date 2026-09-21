@@ -38,11 +38,6 @@ FROM
     LEFT JOIN vix
     ON date_spine.continuous_date = vix.date
 
--- select your date column 
--- create a new column that says give me the last known price, ignoring the nulls, by looking 
--- over a window of time ordered from oldest to newest, starting from beginning of the table 
--- up to today 
-
 CREATE TABLE vix_filled_close AS
 SELECT 
     close, high, low, open,
@@ -57,3 +52,11 @@ SELECT
     LAST_VALUE(close) IGNORE NULLs OVER (ORDER BY continuous_date 
     ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) AS gspc_filled_close
 FROM gspc_continuous_date
+
+-- new columns to add: 
+-- title_category (sentiment): fear/panic/warning, evergreen/opportunity, other  
+-- topic/theme: trading_ed, investing_ed, economic_ed, business_ed, ai_ed, tech_ed, life_ed, 
+-- is_sponsored (True/False), 
+-- sponsor_type (Brokerage, VPN, trading software, other), 
+-- duration_bucket (short: <10, medium: 10-20, long: 20+)
+

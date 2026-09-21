@@ -50,3 +50,7 @@ Other questions we can hint on:
 
 1. Market Regimes 
     This research uses VIX and GSPC as market regime gauges to guide our understanding of content performance across various market regimes. VIX (a volatility index) helps measure the degree of "violent" moves in the market and GSPC provides an actual directional baseline of the economy. Tracking the actual index price lets us see the reality of what the market is doing versus what creators are saying about it.  
+2. Identifying video categories using titles and themes:
+    Titles: fear/panic or opportunity/hype or evergreen/education or other 
+    Themes: trading_ed, investing_ed, economic_ed, business_ed, ai_ed, tech_ed, life_ed
+
