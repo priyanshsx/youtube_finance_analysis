@@ -103,3 +103,22 @@ SELECT *,
         ELSE 'organic'
     END AS sponsor_category
 FROM tagged_videos
+
+-- metric normalization 
+-- view velocity = view_count / (scrape date - publish date)
+
+
+CREATE TABLE videos_metrics_normalized AS 
+SELECT *, 
+    -- days live 
+    GREATEST(date_diff('day', CAST(publish_date AS DATE), DATE '2026-09-19'), 1) AS days_live,
+    
+    -- view velocity
+    view_count / GREATEST(date_diff('day', CAST(publish_date AS DATE), DATE '2026-09-19'), 1) AS view_velocity,
+
+    -- engagement rate 
+    (like_count + comment_count) / NULLIF(view_count, 0) AS engagement_rate
+FROM main_regex
+
+
+
