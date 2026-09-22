@@ -34,7 +34,7 @@ NB: All Live/Broadcast videos were skipped from this analysis.
 2. Hypotheis 3 (format): Videos within the 10-20 minute window achieve the highest relative performance across all market regimes. 
 3. How many days does it take for the creators to pivot their strategy toward panic/fear content following a major VIX spike or S&P500 selloff? 
 4. Is there a diminishing returns threshold where repeatedly publishing "market crash" or "recession" titles during prolonged high-VIX periods leads to a steep decline in engagement rate? 
-5. Which creator sub-categories capture the highest view multiplier during market panic events? 
+5. Which creator captures the highest view multiplier during market panic events? 
 6. Does the 10-to-20-minute video duration window hold as the optimal balance for views and engagement in general finance, or do deep-dive formats outperform?
 7. Do titles containing high-urgency keywords ("Warning", "Do THIS", "Emergency", "Before it's too late") achieve a higher median view velocity and engagement rate than factual, descriptive titles?
 

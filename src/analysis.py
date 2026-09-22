@@ -51,6 +51,14 @@ q4_filter['fear_sequence'] = q4_filter.groupby(['channel_name', 'regime_shift_id
 q4_vv = q4_filter.groupby('fear_sequence')['view_velocity'].median().head(5)
 q4_er = q4_filter.groupby('fear_sequence')['engagement_rate'].median().head(5)
 
+# answering question #5 (refer README)
+
+q5 = df.groupby(['channel_name', 'market_regime'])['view_velocity'].median().unstack()
+
+q5['view_multiplier'] = q5['Volatile'] / q5['Normal']
+
+q5_ranked = q5.sort_values('view_multiplier', ascending=False)
+
 # printing values 
 
 print("---" * 30)
@@ -68,4 +76,6 @@ print("\nDiminishing returns per fear videos (Engagement Rate):")
 print(q4_er)
 print("\nDiminishing returns per fear videos (View Velocity):")
 print(q4_vv)
+print("\nView Multiplier by Creator (Volatile / Normal)):")
+print(q5_ranked[['Normal', 'Volatile', 'view_multiplier']])
 print("---" * 30)
