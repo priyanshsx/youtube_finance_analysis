@@ -73,17 +73,23 @@ WITH tagged_videos AS (
             WHEN duration_seconds <= 1200 THEN 'medium'
             ELSE 'long'
         END AS duration_bucket,
+        
         CASE 
-            -- fear
-            WHEN regexp_matches(title, '(?i)\b(crash|warning|collapse|bubble|crisis|recession|panic|emergency|disaster|doomsday|liquidation|debasement|screwed|trap|chaos|red flag|yikes|speechless|falter)\b|\b(it.?s over|do not buy|don.?t buy|lose everything|falls? apart|rushing for the exits?|much worse|end of the world|f\*\*k.?d)\b') THEN 'fear'
-            -- opportunity
-            WHEN regexp_matches(title, '(?i)\b(skyrocket|bullish|moon|soar|banger|unbelievable)\b|\b(wealth transfer|generational|bull run|infinite money glitch|make millions|must buy|all in|life.?changing|never get a chance|filthy rich|go nuts|do not sell|don.?t sell|wealth rotation)\b') THEN 'opportunity'
+            -- fear 
+            WHEN regexp_matches(title, '(?i)\\b(crash|warning|collapse|bubble|crisis|recession|panic|emergency|disaster|doomsday|liquidation|debasement|screwed|trap|chaos|red flag|yikes|speechless|falter|do not buy|dont buy|end of the world|falls apart|fall apart|falling apart|bankrupt|bankruptcy|bloodbath|margin call|hyperinflation|depression|downgrade|contagion|layoffs?|rug pull|selloffs?|losing money|toxic|trade war|worst|danger|scam|fake|lied|stealing|destroyed|breaking|terrible|trouble|scary)\\b|\\b(it.?s over|don.?t buy|lose everything|falls? apart|rushing for the exits?|much worse|f\\*\\*k.?d)\\b') THEN 'fear'
+            
+            -- opportunity 
+            WHEN regexp_matches(title, '(?i)\\b(skyrocket|huge|cheapest|billion|bullish|moon|soar|banger|unbelievable|10x|100x|breakout|buy now|undervalued|short squeeze|pump|gem|parabolic|catalyst|dividend yield|genius|secrets?|tricks?|hacks?|win|winner|unstoppable|massive|boom|fortune|millions?|billionaires?)\\b|\\b(wealth transfer|generational|bull run|infinite money glitch|make millions|must buy|all in|life.?changing|never get a chance|filthy rich|go nuts|do not sell|don.?t sell|wealth rotation)\\b') THEN 'opportunity'
+            
             -- evergreen 
-            WHEN regexp_matches(title, '(?i)\b(passive income|roth ira|401k|retire|budget|habits?|mindset|credit score|net worth|taxes|portfolio|salary|guide|milestones?)\b|\b(how to|explains?|buy.* vs .*rent|rent.* vs .*buy|financial plan|saving|debt mistakes?|wealth building|long game|getting rich|quiet quit)\b') THEN 'evergreen'
-            -- neutral 
-            WHEN regexp_matches(title, '(?i)\b(bitcoin|btc|crypto|altcoin|ai|dropshipping|real estate|mortgage|cpi|inflation|jobs report|fed|vix|gold|silver|wall street)\b') THEN 'neutral'
+            WHEN regexp_matches(title, '(?i)\\b(passive income|hire|news|fire|stream|millionaire|ban|roth ira|401k|retire|retirement|budget|habits?|mindset|credit|net worth|tax|taxes|portfolio|salary|guide|milestones?|etf|index funds?|compound interest|side hustle|savings account|hysa|student loans?|debt free|f\\.?i\\.?r\\.?e|fiduciary|book review|investing|investment|finance|financial|wealth|rich|cost|tutorial|basics?|beginners?|step by step|review|worth it|explained|analysis|tips?|mistakes?|lessons?|advice|truth|reality|stop doing|rules?)\\b|\\b(how to|explains?|buy.* vs .*rent|rent.* vs .*buy|financial plan|saving|debt mistakes?|wealth building|long game|getting rich|quiet quit)\\b') THEN 'evergreen'
+            
+            -- other 
+            WHEN regexp_matches(title, '(?i)\\b(bitcoin|airline|btc|amd|tsla|tesla|nvda|nvidia|s&p|crypto|altcoin|ai|dropshipping|real estate|mortgage|cpi|inflation|jobs report|fed|vix|gold|silver|wall street|rate cuts?|rate hikes?|powell|jpow|fomc|earnings|q1|q2|q3|q4|aapl|msft|amzn|meta|goog|spy|qqq|nasdaq|dow jones|sec|economy|interest rates?|stocks?|china|markets?|business|company|companies|ceo|banks?|banking|money|dollars?|cash|housing|homes?|house|cars?|loans?|debt|paycheck|prices?|industry)\\b') THEN 'other'
+            
             ELSE 'undefined'
         END AS title_category,
+
         CASE 
             -- sponsorship check 
             WHEN regexp_matches(description, '(?i)\b(sponsored by|thanks to.* for sponsoring|paid partnership|ad)\b') THEN TRUE
@@ -149,55 +155,3 @@ ON CAST(v.publish_date AS DATE) = gspc_filled_close.continuous_date
 
 
 
-
-------------------------------- 
-
-CREATE TABLE main_regex_check AS 
-WITH tagged_videos AS (
-    SELECT 
-        channel_name,
-        title, 
-        publish_date,
-        duration_seconds,
-        view_count, 
-        like_count,
-        comment_count,
-        description,
-        
-        CASE 
-            WHEN duration_seconds < 180 THEN 'micro'
-            WHEN duration_seconds <= 600 THEN 'short'
-            WHEN duration_seconds <= 1200 THEN 'medium'
-            ELSE 'long'
-        END AS duration_bucket,
-        CASE 
-            -- fear
-            WHEN regexp_matches(title, '(?i)\\b(crash|warning|collapse|bubble|crisis|recession|panic|emergency|disaster|doomsday|liquidation|debasement|screwed|trap|chaos|red flag|yikes|speechless|falter|do not buy| dont buy|end of the world|end|falls apart|fall apart|falling apart)\\b|\\b(it.?s over|do not buy|don.?t buy|lose everything|falls? apart|rushing for the exits?|much worse|end of the world|f\\*\\*k.?d)\\b') THEN 'fear'
-            -- opportunity
-            WHEN regexp_matches(title, '(?i)\\b(skyrocket|huge|trade war|taco|retirement|cheapest|billion|bullish|moon|soar|banger|unbelievable)\\b|\\b(wealth transfer|generational|bull run|infinite money glitch|make millions|must buy|all in|life.?changing|never get a chance|filthy rich|go nuts|do not sell|don.?t sell|wealth rotation)\\b') THEN 'opportunity'
-            -- evergreen 
-            WHEN regexp_matches(title, '(?i)\\b(passive income|hire|news|fire|stream|millionaire|ban|roth ira|401k|retire|budget|habits?|mindset|credit score|net worth|taxes|portfolio|salary|guide|milestones?)\\b|\\b(how to|explains?|buy.* vs .*rent|rent.* vs .*buy|financial plan|saving|debt mistakes?|wealth building|long game|getting rich|quiet quit)\\b') THEN 'evergreen'
-            -- other (education/stocks) 
-            WHEN regexp_matches(title, '(?i)\\b(bitcoin|airline|btc|amd|tsla|tesla|nvda|nvidia|s&p|crypto|altcoin|ai|dropshipping|real estate|mortgage|cpi|inflation|jobs report|fed|vix|gold|silver|wall street)\\b') THEN 'other'
-            ELSE 'undefined'
-        END AS title_category,
-
-        CASE 
-            -- sponsorship check 
-            WHEN regexp_matches(description, '(?i)\b(sponsored by|thanks to.* for sponsoring|paid partnership|ad)\b') THEN TRUE
-            ELSE FALSE 
-        END AS is_sponsored
-        
-        FROM main
-)
-
-SELECT *, 
-    CASE 
-        WHEN is_sponsored = TRUE AND regexp_matches(description, '(?i)\b(webull|robinhood|m1 finance|interactive brokers|moomoo|public.com)\b') THEN 'brokerage'
-        WHEN is_sponsored = TRUE AND regexp_matches(description, '(?i)\b(coinbase|kraken|ledger|trezor|binance|metamask)\b') THEN 'crypto wallets'
-        WHEN is_sponsored = TRUE AND regexp_matches(description, '(?i)\b(turbotax|taxact|inc .* authority|rocket lawyer|quickbooks)\b') THEN 'tax software'
-        WHEN is_sponsored = TRUE AND regexp_matches(description, '(?i)\b(nordvpn|tradingview|trading view|expressvpn|surfshark|incogni|deleteme|audible)\b') THEN 'tech/privacy'
-        WHEN is_sponsored = TRUE THEN 'other sponsor'
-        ELSE 'organic'
-    END AS sponsor_category
-FROM tagged_videos
