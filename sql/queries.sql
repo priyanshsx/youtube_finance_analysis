@@ -53,28 +53,8 @@ SELECT
     ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) AS gspc_filled_close
 FROM gspc_continuous_date
 
--- regex string for fear: 
--- (?i)\b(crash|warning|collapse|bubble|crisis|recession|panic|emergency|disaster|doomsday|liquidation|debasement|screwed|trap|chaos|red flag|yikes|speechless|falter)\b|\b(it.?s over|do not buy|don.?t buy|lose everything|falls? apart|rushing for the exits?|much worse|end of the world|f\*\*k.?d)\b
 
--- regex string for opportunity: 
--- (?i)\b(skyrocket|bullish|moon|soar|banger|unbelievable)\b|\b(wealth transfer|generational|bull run|infinite money glitch|make millions|must buy|all in|life.?changing|never get a chance|filthy rich|go nuts|do not sell|don.?t sell|wealth rotation)\b
-
--- regex string for evergreen: 
--- (?i)\b(passive income|roth ira|401k|retire|budget|habits?|mindset|credit score|net worth|taxes|portfolio|salary|guide|milestones?)\b|\b(how to|explains?|buy.* vs .*rent|rent.* vs .*buy|financial plan|saving|debt mistakes?|wealth building|long game|getting rich|quiet quit)\b
-
--- regex string for neutral: 
--- (?i)\b(bitcoin|btc|crypto|altcoin|ai|dropshipping|real estate|mortgage|cpi|inflation|jobs report|fed|vix|gold|silver|wall street)\b
-
--- regex string for is_sponsored 
--- (?i)\b(sponsored by|thanks to.* for sponsoring|paid partnership|ad|)\b
-
--- Brokerages and trading apps: webull, robinhood, m1 finance, interactive brokers, moomoo, public.com
--- Crypto and hardware wallets: coinbase, crypto.com, kraken, ledger, trezor, binance
--- Tax, accounting and business services: turbotax, taxact, inc authority, rocket lawyer, quickbooks, 
--- privacy and tech: nordvpn, expressvpn, surfshar, incogni, deleteme, audible 
-
--- duration buckets: micro: < 180s; short: 181s - 600s, medium: 601s-1200s, long: 1201+
-
+-- sentiment, sponsorship, and duration check 
 CREATE TABLE main_regex AS 
 WITH tagged_videos AS (
     SELECT 
@@ -101,7 +81,7 @@ WITH tagged_videos AS (
             -- evergreen 
             WHEN regexp_matches(title, '(?i)\b(passive income|roth ira|401k|retire|budget|habits?|mindset|credit score|net worth|taxes|portfolio|salary|guide|milestones?)\b|\b(how to|explains?|buy.* vs .*rent|rent.* vs .*buy|financial plan|saving|debt mistakes?|wealth building|long game|getting rich|quiet quit)\b') THEN 'evergreen'
             -- neutral 
-            WHEN regexp_matches(title, '(?i)\b(bitcoin|btc|crypto|altcoin|ai|dropshipping|real estate|mortgage|cpi|inflation|jobs report|fed|vix|gold|silver|wall street)\b') THEN 'other'
+            WHEN regexp_matches(title, '(?i)\b(bitcoin|btc|crypto|altcoin|ai|dropshipping|real estate|mortgage|cpi|inflation|jobs report|fed|vix|gold|silver|wall street)\b') THEN 'neutral'
             ELSE 'undefined'
         END AS title_category,
         CASE 
@@ -116,7 +96,7 @@ WITH tagged_videos AS (
 SELECT *, 
     CASE 
         WHEN is_sponsored = TRUE AND regexp_matches(description, '(?i)\b(webull|robinhood|m1 finance|interactive brokers|moomoo|public.com)\b') THEN 'brokerage'
-        WHEN is_sponsored = TRUE AND regexp_matches(description, '(?i)\b(coinbase|kraken|ledger|treazor|binance|metamask)\b') THEN 'crypto wallets'
+        WHEN is_sponsored = TRUE AND regexp_matches(description, '(?i)\b(coinbase|kraken|ledger|trezor|binance|metamask)\b') THEN 'crypto wallets'
         WHEN is_sponsored = TRUE AND regexp_matches(description, '(?i)\b(turbotax|taxact|inc .* authority|rocket lawyer|quickbooks)\b') THEN 'tax software'
         WHEN is_sponsored = TRUE AND regexp_matches(description, '(?i)\b(nordvpn|tradingview|trading view|expressvpn|surfshark|incogni|deleteme|audible)\b') THEN 'tech/privacy'
         WHEN is_sponsored = TRUE THEN 'other sponsor'
