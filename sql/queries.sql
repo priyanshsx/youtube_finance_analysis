@@ -105,9 +105,6 @@ SELECT *,
 FROM tagged_videos
 
 -- metric normalization 
--- view velocity = view_count / (scrape date - publish date)
-
-
 CREATE TABLE videos_metrics_normalized AS 
 SELECT *, 
     -- days live 
@@ -120,5 +117,33 @@ SELECT *,
     (like_count + comment_count) / NULLIF(view_count, 0) AS engagement_rate
 FROM main_regex
 
+-- creating the master table 
+CREATE TABLE master AS 
+SELECT 
 
+    -- channel data
+    v.channel_name, 
+    v.title, 
+    v.publish_date,
+    v.duration_seconds, 
+    v.duration_bucket,
+    v.title_category,
+    v.is_sponsored, 
+    v.sponsor_category, 
+    v.days_live, 
+    v.view_count,
+    v.like_count,
+    v.comment_count,
+    v.view_velocity, 
+    v.engagement_rate,
+    
+    -- market data 
+    vix_filled_close.vix_filled_close AS vix_close,
+    gspc_filled_close.gspc_filled_close AS gspc_close
+
+FROM videos_metrics_normalized AS v 
+LEFT JOIN vix_filled_close 
+ON CAST(v.publish_date AS DATE) = vix_filled_close.continuous_date
+LEFT JOIN gspc_filled_close 
+ON CAST(v.publish_date AS DATE) = gspc_filled_close.continuous_date 
 
