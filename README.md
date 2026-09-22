@@ -58,4 +58,10 @@ Other questions we can hint on:
 
 1. We failed to reject the hypothesis 1 that during volatile periods, fear-inducing titles and videos increase the performance gap between fear and evergreen videos by > 50%. Interestingly, your data reveals a massive plot twist: high market volatility actively suppresses median daily views across the board. While Fear content maintains its relative dominance over Evergreen in both environments (roughly an 85% premium), raw viewership plummets when the VIX spikes. This suggests audiences might actually tune out and avoid financial YouTube when the real market gets bloody, entirely subverting the standard assumption that panic drives engagement.
 
-2. 
+2. The "Goldilocks Zone" is a Myth: The 10-20 minute "medium" bucket fails to secure the top spot in any category. It is beaten in pure reach by long videos, and beaten in engagement by short videos.   
+
+3. Deep-Dives Drive the Algorithm: Long videos (>20 minutes) absolutely crush the competition for raw view velocity. In a normal market, they capture a median of 2030 daily views, far outpacing the 1226 views of medium videos. Even during a volatile market crash, long formats maintain 1041 daily views while the medium bucket collapses to 473. 
+
+4. The Short Video Engagement Anomaly: Short videos (3-10 minutes) have the worst reach in a normal market (just 298 daily views), but they convert the highest percentage of that audience into active engagers across both market regimes (4.1% normal, 4.7% volatile). 
+
+5. Volatility Shrinks the Audience, but Deepens the Bond: Across every single duration bucket, the raw median view velocity drops significantly when the market turns volatile. However, the engagement rate increases across every single bucket during that same volatility. This means that while fewer people watch finance YouTube during a market panic, the ones who do stick around are highly activated and heavily interacting in the comments.   
