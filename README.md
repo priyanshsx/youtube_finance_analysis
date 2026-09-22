@@ -54,3 +54,8 @@ Other questions we can hint on:
     Titles: fear/panic or opportunity/hype or evergreen/education or other 
     Themes: trading_ed, investing_ed, economic_ed, business_ed, ai_ed, tech_ed, life_ed
 
+## Findings 
+
+1. We failed to reject the hypothesis 1 that during volatile periods, fear-inducing titles and videos increase the performance gap between fear and evergreen videos by > 50%. Interestingly, your data reveals a massive plot twist: high market volatility actively suppresses median daily views across the board. While Fear content maintains its relative dominance over Evergreen in both environments (roughly an 85% premium), raw viewership plummets when the VIX spikes. This suggests audiences might actually tune out and avoid financial YouTube when the real market gets bloody, entirely subverting the standard assumption that panic drives engagement.
+
+2. 

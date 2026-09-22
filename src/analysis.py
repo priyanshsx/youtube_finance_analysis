@@ -21,4 +21,3 @@ df_hyp1['market_regime'] = np.where(df_hyp1['vix_close']  > 20, 'Volatile', 'Nor
 
 filtered_df = df_hyp1.groupby(['market_regime', 'title_category'])['view_velocity'].median().unstack()
 print(filtered_df)
-print(df_hyp1.info())
