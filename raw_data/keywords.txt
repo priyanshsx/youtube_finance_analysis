@@ -24,3 +24,14 @@ Bucket: neutral
 
 bitcoin, btc, crypto, altcoin, ai, dropshipping, real estate, mortgage, cpi, inflation, jobs report, 
 fed, vix, gold, silver, wall street 
+
+Sponsorship check 
+phrases/keywords to check for: sponsored by, thanks to ... for sponsoring, paid partnership, ad 
+URL structures: [brand.com/creatorname](https://brand.com/creatorname), ?utm_source=, affiliate=, ref=,
+    bit.ly, linktr.ee, amzn.to
+
+Sponsor categories: 
+Brokerages and trading apps: webull, robinhood, m1 finance, interactive brokers, moomoo, public.com
+Crypto and hardware wallets: coinbase, crypto.com, kraken, ledger, trezor, binance
+Tax, accounting and business services: turbotax, taxact, inc authority, rocket lawyer, quickbooks, 
+privacy and tech: nordvpn, expressvpn, surfshar, incogni, deleteme, audible 
