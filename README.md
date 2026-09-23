@@ -2,13 +2,16 @@
 
 An empirical study decoding algorithmic performance, creator resilience, and audience fatigue across macroeconomic market cycles.
 
+![](/assets/dashboard1_hero_overview.png)
+
+
 ## Executive Overview 
 
 When the stock market panics, financial media shifts instantly—but does fear content actually outperform evergreen financial literacy in raw views and engagement?
 
 This project analyzes the publishing patterns and performance metrics of 17 major financial YouTube creators from January 1, 2023, through September 2026. By linking video performance data against macroeconomic volatility (VIX Index) and market benchmarks (S&P 500), this study models audience fatigue, volatility multipliers, and optimal publishing windows.
 
-## Interacive Dashboards
+## Interactive Dashboards
 
 - [Dashboard 1: Competitor Matrix (17 Creators)](https://public.tableau.com/views/FinanceYouTubeCreatorsCompetitorMatrix17Creators/Dashboard1?:language=en-GB&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
 
