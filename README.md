@@ -6,7 +6,7 @@ Check out 2 public dashboards for this analysis:
 
 ![Dashboard 1: Finance YouTube Creators: Competitor Matrix (17 Creators)](file:///home/priyansh/Pictures/Screenshots/Screenshot%20from%202026-09-23%2012-00-43.png)
 
-Dashboard 2: 
+[Dashboard 2: Winning on Finance YouTube](https://public.tableau.com/views/WinningonFinanceYouTube3ChartsYouNeedtoSee/Dashboard1?:language=en-GB&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
 
 
 ## Eligibility Criteria 
