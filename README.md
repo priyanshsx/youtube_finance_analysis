@@ -73,7 +73,7 @@ NB: All Live/Broadcast videos were skipped from this analysis.
 
 - **Engagement Peak and Drop-off**: When creators post consecutive "fear" videos during a prolonged crash, audience engagement rates climb initially, peaking at 5.67% on the 3rd consecutive video in the sequence. However, engagement suffers a steep decline to 3.17% by the 4th consecutive video, indicating audience fatigue.
 
-![](/assets/fear_fatique.png)
+![](/assets/fear_fatigue.png)
 
 - **View Velocity Volatility**: The algorithm treats consecutive fear videos erratically. Median views climb to 1,404 on the 2nd video, completely collapse to 95 views on the 3rd, and surge to over 4,297 on the 4th.
 
