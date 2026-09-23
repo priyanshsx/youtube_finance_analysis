@@ -4,6 +4,8 @@ An empirical study decoding algorithmic performance, creator resilience, and aud
 
 ![](/assets/dashboard1_hero_overview.png)
 
+![](/assets/dashboard2_hero_overview.png)
+
 
 ## Executive Overview 
 
@@ -63,17 +65,24 @@ NB: All Live/Broadcast videos were skipped from this analysis.
 
 - **Reach vs. Engagement Trade-off**: The 10-20 minute "Medium" duration is not the optimal balance. Long-form content (>20 minutes) dominates raw reach across all markets, pulling 2,030 daily views in normal conditions and 1,041 in volatile conditions. Conversely, short-form content (3-10 minutes) yields the lowest views but drives the highest engagement rates across both normal (4.13%) and volatile (4.70%) markets.
 
+![](/assets/duration_tradeoff.png)
+
 - **Volatility Boosts Engagement**: While raw viewership drops during high-VIX periods, audience engagement rates actually increase across every single duration bucket during volatile markets.
 
 ### 2. Audience Fatique and Diminishing Returns 
 
 - **Engagement Peak and Drop-off**: When creators post consecutive "fear" videos during a prolonged crash, audience engagement rates climb initially, peaking at 5.67% on the 3rd consecutive video in the sequence. However, engagement suffers a steep decline to 3.17% by the 4th consecutive video, indicating audience fatigue.
 
+![](/assets/fear_fatique.png)
+
 - **View Velocity Volatility**: The algorithm treats consecutive fear videos erratically. Median views climb to 1,404 on the 2nd video, completely collapse to 95 views on the 3rd, and surge to over 4,297 on the 4th.
 
 ### 3. Creator Reaction and Multipliers 
 
-- **The Volatility Multipliers**: While macro viewership drops during a crash, 8 of the creators actively gain viewership. Andrei Jikh (6.76x) and Ben Felix (5.03x) experience massive view multipliers, while channels like Financial Education (0.33x) and Mark Tilbury (0.50x) lose more than half their baseline audience.
+- **The Volatility Multipliers**: While macro viewership drops during a crash, 8 of the 17 analyzed creators actively gain viewership. Andrei Jikh (6.76x) and Ben Felix (5.03x) experience massive view multipliers, while channels like Financial Education (0.33x) and Mark Tilbury (0.50x) lose more than half their baseline audience.
+
+![](/assets/view_multiplier.png)
+
 - **Reaction Time**: Several financial creators, including Graham Stephan, ClearValue Tax, and Patrick Boyle, execute a 0-day pivot, pushing panic content immediately upon a regime shift. More measured channels like Two Cents (7 days) and The Plain Bagel (25.5 days) significantly lag the market reaction.
 
 ## Technical Stack & Execution Pipeline
