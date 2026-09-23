@@ -11,6 +11,8 @@ con = duckdb.connect('/home/priyansh/Documents/d/youtube_finance_analysis/db/mai
 
 df = con.sql("SELECT * FROM master").df()
 
+df['publish_date'] = pd.to_datetime(df['publish_date'])
+
 # answering question #1 (refer README)
 
 df_hyp1 = con.sql("""
@@ -59,6 +61,31 @@ q5['view_multiplier'] = q5['Volatile'] / q5['Normal']
 
 q5_ranked = q5.sort_values('view_multiplier', ascending=False)
 
+# answering question #3 (refer README)
+
+# isoloating just the volatile market regime
+
+volatile_df = df[df['market_regime'] == 'Volatile'].copy()
+
+# finding the start date of every volatile period 
+
+vol_starts = volatile_df.groupby('regime_shift_id')['publish_date'].min().reset_index()
+vol_starts.rename(columns={'publish_date': 'island_start_date'}, inplace=True)
+
+# first video by the creator during that regime shift to volatile (we'll be looking at fear videos only)
+fear_df = volatile_df[volatile_df['title_category'] == 'fear']
+first_fear_video = fear_df.groupby(['regime_shift_id', 'channel_name'])['publish_date'].min().reset_index()
+first_fear_video.rename(columns={'publish_date': 'first_fear_video_date'}, inplace=True)
+
+# merging the two dataframes
+pivot_df = pd.merge(first_fear_video, vol_starts, on='regime_shift_id')
+
+# calculating the days difference 
+pivot_df['days_to_pivot'] = (pivot_df['first_fear_video_date'] - pivot_df['island_start_date']).dt.days
+
+# calculating the final no. of days it takes for a creator to pivot to making fear videos
+q3_final = pivot_df.groupby('channel_name')['days_to_pivot'].median().sort_values()
+
 # printing values 
 
 print("---" * 30)
@@ -78,4 +105,6 @@ print("\nDiminishing returns per fear videos (View Velocity):")
 print(q4_vv)
 print("\nView Multiplier by Creator (Volatile / Normal)):")
 print(q5_ranked[['Normal', 'Volatile', 'view_multiplier']])
+print("\nNo. of days it takes a creator to pivot to making 'fear' videos:")
+print(q3_final)
 print("---" * 30)
