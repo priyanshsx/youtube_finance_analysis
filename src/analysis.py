@@ -86,6 +86,12 @@ pivot_df['days_to_pivot'] = (pivot_df['first_fear_video_date'] - pivot_df['islan
 # calculating the final no. of days it takes for a creator to pivot to making fear videos
 q3_final = pivot_df.groupby('channel_name')['days_to_pivot'].median().sort_values()
 
+# saving file as csv for tableau dashboard building 
+ 
+df = df.merge(q4_filter[['channel_name', 'publish_date', 'fear_sequence']], on=['channel_name', 'publish_date'], how='left')
+df.to_csv('/home/priyansh/Documents/d/youtube_finance_analysis/processed_data/master.csv')
+q5_ranked.reset_index().to_csv('/home/priyansh/Documents/d/youtube_finance_analysis/processed_data/creator_multiplier.csv')
+
 # printing values 
 
 print("---" * 30)
