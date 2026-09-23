@@ -2,6 +2,12 @@
 
 The Research Question: Do panic-driven titles ("Recession Coming", "Market Crash", "Do THIS Now") drive higher view velocity than evergreen literacy titles ("How to Budget", "Index Funds Explained") during different market cycles?
 
+Check out 2 public dashboards for this analysis: 
+
+![Dashboard 1: Finance YouTube Creators: Competitor Matrix (17 Creators)](file:///home/priyansh/Pictures/Screenshots/Screenshot%20from%202026-09-23%2012-00-43.png)
+
+Dashboard 2: 
+
 
 ## Eligibility Criteria 
 Any YouTube content creator that regularly publishes finance, investment (equities, commodities, crypto, real estate) related content as their primary content creation and has been publishing regularly since January 1st, 2023 until September 2026, have a subscriber count of at least 650k. 
