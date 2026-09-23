@@ -91,7 +91,7 @@ q3_final = pivot_df.groupby('channel_name')['days_to_pivot'].median().sort_value
 print("---" * 30)
 print("\nPerformance Gap between Fear and Evergreen titles:")
 print(q1_df)
-print("Video Duration & View Velocity:")
+print("\nVideo Duration & View Velocity:")
 print(q2_vv)
 print("\nVideo Duration & Engagement Rate:")
 print(q2_er)

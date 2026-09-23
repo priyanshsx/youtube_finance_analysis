@@ -49,12 +49,25 @@ NB: All Live/Broadcast videos were skipped from this analysis.
 
 ## Findings 
 
-1. We failed to reject the hypothesis 1 that during volatile periods, fear-inducing titles and videos increase the performance gap between fear and evergreen videos by > 50%. Interestingly, your data reveals a massive plot twist: high market volatility actively suppresses median daily views across the board. While Fear content maintains its relative dominance over Evergreen in both environments (roughly an 85% premium), raw viewership plummets when the VIX spikes. This suggests audiences might actually tune out and avoid financial YouTube when the real market gets bloody, entirely subverting the standard assumption that panic drives engagement.
+### Macro Market Dynamics & Content Strategy 
 
-2. The "Goldilocks Zone" is a Myth: The 10-20 minute "medium" bucket fails to secure the top spot in any category. It is beaten in pure reach by long videos, and beaten in engagement by short videos.   
+- **Performance Gap**: High volatility does not widen the performance gap between "Fear" and "Evergreen" content. Instead, median daily views drop severely for both categories during a VIX spike. In a normal market, fear content averages roughtly 1,898 views versus evergreen's 1022. During a volatile market, both crash proportionally to 776 views and 422 views, respectively. 
 
-3. Deep-Dives Drive the Algorithm: Long videos (>20 minutes) absolutely crush the competition for raw view velocity. In a normal market, they capture a median of 2030 daily views, far outpacing the 1226 views of medium videos. Even during a volatile market crash, long formats maintain 1041 daily views while the medium bucket collapses to 473. 
+- **Urgency Keywords (Question 7)**: Titles utilizing high-urgency keywords ("warning", "alert", etc.) definitively outperform standard factual titles. Urgent titles capture a median view velocity of 1,449 (vs. 1,134 for standard) and achieve a higher median engagement rate of 3.43% (vs. 2.99%).
 
-4. The Short Video Engagement Anomaly: Short videos (3-10 minutes) have the worst reach in a normal market (just 298 daily views), but they convert the highest percentage of that audience into active engagers across both market regimes (4.1% normal, 4.7% volatile). 
+### Video Format and Duration 
 
-5. Volatility Shrinks the Audience, but Deepens the Bond: Across every single duration bucket, the raw median view velocity drops significantly when the market turns volatile. However, the engagement rate increases across every single bucket during that same volatility. This means that while fewer people watch finance YouTube during a market panic, the ones who do stick around are highly activated and heavily interacting in the comments.   
+- **Reach vs. Engagement Trade-off**: The 10-20 minute "Medium" duration is not the optimal balance. Long-form content (>20 minutes) dominates raw reach across all markets, pulling 2,030 daily views in normal conditions and 1,041 in volatile conditions. Conversely, short-form content (3-10 minutes) yields the lowest views but drives the highest engagement rates across both normal (4.13%) and volatile (4.70%) markets.
+
+- **Volatility Boosts Engagement**: While raw viewership drops during high-VIX periods, audience engagement rates actually increase across every single duration bucket during volatile markets.
+
+### Audience Fatique and Diminishing Returns 
+
+- **Engagement Peak and Drop-off**: When creators post consecutive "fear" videos during a prolonged crash, audience engagement rates climb initially, peaking at 5.67% on the 3rd consecutive video in the sequence. However, engagement suffers a steep decline to 3.17% by the 4th consecutive video, indicating audience fatigue.
+
+- **View Velocity Volatility**: The algorithm treats consecutive fear videos erratically. Median views climb to 1,404 on the 2nd video, completely collapse to 95 views on the 3rd, and surge to over 4,297 on the 4th.
+
+### Creator Reaction and Multipliers 
+
+- **The Volatility Multipliers**: While macro viewership drops during a crash, 8 of the creators actively gain viewership. Andrei Jikh (6.76x) and Ben Felix (5.03x) experience massive view multipliers, while channels like Financial Education (0.33x) and Mark Tilbury (0.50x) lose more than half their baseline audience.
+- **Reaction Time**: Several financial creators, including Graham Stephan, ClearValue Tax, and Patrick Boyle, execute a 0-day pivot, pushing panic content immediately upon a regime shift. More measured channels like Two Cents (7 days) and The Plain Bagel (25.5 days) significantly lag the market reaction.
